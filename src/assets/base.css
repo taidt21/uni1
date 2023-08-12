@@ -1,0 +1,134 @@
+:root {
+  --color-text: #000000;
+  --dark-blue: #032B51;
+
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+  padding: 0;
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+
+img {
+  max-width: 100%;
+}
+
+
+
+@font-face {
+  font-family: inter;
+  src: url('./font/Inter-Thin.ttf.ttf');
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: inter;
+  src: url('./font//Inter-ExtraLight.ttf');
+}
+
+@font-face {
+  font-family: inter;
+  src: url('./font/Inter-Light.ttf');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: inter;
+  src: url('./font/Inter-Regular.ttf');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: inter;
+  src: url('./font/Inter-Medium.ttf');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: inter;
+  src: url('./font/Inter-SemiBold.ttf');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: inter;
+  src: url('./font/Inter-Bold.ttf');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: inter;
+  src: url('./font/Inter-ExtraBold.ttf');
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: inter;
+  src: url('./font/Inter-Black.ttf');
+  font-weight: 900;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--color-text);
+  width: 100vw;
+  overflow-x: hidden;
+  transition: color 0.5s, background-color 0.5s;
+  line-height: 1.5;
+  font-family: inter !important;
+  font-size: 16px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  overflow-x: hidden;
+  width: 100vw;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.text-banner {
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+  font-weight: 600;
+  font-size: 160px;
+  line-height: 160px;
+  -webkit-text-stroke-color: rgba(3, 43, 81, 0.08);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* CSS Transition */
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.pagination-item {
+  width: 30px;
+  height: 30px;
+}
+
+.pagination-item.active {
+  background-color: var(--dark-blue);
+  color: #fff !important;
+}
