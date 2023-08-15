@@ -9,9 +9,7 @@ import Blog from "../page/blog/index.vue";
 import BlogDetail from "../components/blogDeatail/index.vue";
 import DaiLy from "../page/dai-ly/index.vue";
 import Contact from "../page/contact/index.vue";
-const maintenance = {
-  template: "<div>User</div>",
-};
+import NotFound from "../page/notFound.vue";
 
 const routes = [
   {
@@ -29,11 +27,7 @@ const routes = [
     name: "Sản phẩm",
     component: Product,
   },
-  {
-    path: "/maintenance",
-    name: "Bảo hành",
-    component: maintenance,
-  },
+
   {
     path: "/blog",
     name: "Tin tức",
@@ -59,9 +53,15 @@ const routes = [
     name: "Chi tiết tin tức",
     component: BlogDetail,
   },
+  {
+    path: "/404",
+    name: "PageNotFound",
+    component: NotFound,
+  },
+  { path: "/:pathMatch(.*)*", redirect: "/404" },
 ];
 const router = createRouter({
-  history: createWebHistory("/uni/"),
+  history: createWebHistory("/uni1/"),
   routes,
 });
 router.afterEach(() => {

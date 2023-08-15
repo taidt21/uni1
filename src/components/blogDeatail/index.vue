@@ -5,12 +5,13 @@ import sidebarblog from "../sideBar-blog.vue";
 import Breakpoint from "../breakpoint.vue";
 import titleH2 from "../titleH2.vue";
 import description from "../description.vue";
+import "./responsive.css";
 </script>
 <template>
   <section class="section-detaiBlog pt-4">
     <div class="container">
       <div class="row">
-        <div class="col-8">
+        <div class="col-lg-8">
           <breakpoint
             breakpoint1="Trang chủ"
             breakpoint2="Tin tức"
@@ -18,7 +19,7 @@ import description from "../description.vue";
           <div>
             <titleH2
               content="4 BƯỚC LÀM BÁNH NGON ĐƠN GIẢN TẠI NHÀ BẠN NÊN BIẾT" />
-            <div class="d-flex align-items-center gap-3">
+            <div class="d-flex align-items-center gap-3 mb-4">
               <div class="icon-date">
                 <img
                   class="img-fluid w-100"
@@ -40,7 +41,7 @@ import description from "../description.vue";
               <description
                 class="text-justify mt-3"
                 content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries." />
-              <div class="d-flex gap-3">
+              <div class="d-flex gap-3 flex-sm-row flex-column">
                 <div class="flex-grow-1">
                   <img
                     class="img-fluid w-100"
@@ -63,7 +64,7 @@ import description from "../description.vue";
             </div>
           </div>
         </div>
-        <div class="col-4">
+        <div class="col-lg-4">
           <sidebarblog />
         </div>
       </div>

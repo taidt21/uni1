@@ -4,6 +4,7 @@
 import bannerPage from "../../components/bannerPage.vue";
 import titleH2 from "../../components/titleH2.vue";
 import Button from "../../components/Button.vue";
+import "./responsive.css";
 </script>
 <template>
   <div>
@@ -11,9 +12,14 @@ import Button from "../../components/Button.vue";
     <section class="section-2-contact">
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-6">
-            <titleH2 content=" LIÊN HỆ TƯ VẤN MIỄN PHÍ" />
-            <div class="d-flex gap-5 mt-4">
+          <div class="col-md-6">
+            <titleH2>
+              LIÊN HỆ TƯ VẤN
+              <span class="d-block d-md-inline-block fw-bold"
+                >MIỄN PHÍ</span
+              ></titleH2
+            >
+            <div class="d-flex gap-4 gap-md-5 mt-4">
               <div class="d-flex gap-2">
                 <div
                   class="d-flex icon-contact-item align-items-center justify-content-center">
@@ -45,13 +51,13 @@ import Button from "../../components/Button.vue";
               </div>
             </div>
             <div class="row row-gap-4 mt-5">
-              <div class="col-6">
+              <div class="col-sm-6">
                 <input
                   class="field d-block field w-100"
                   type="text"
                   placeholder="Họ và tên" />
               </div>
-              <div class="col-6">
+              <div class="col-sm-6">
                 <input
                   class="field d-block field w-100"
                   type="number "
@@ -71,7 +77,7 @@ import Button from "../../components/Button.vue";
             </div>
             <Button class="btn-register mt-5" textBtn="Gửi thông tin" />
           </div>
-          <div class="col-6">
+          <div class="col-md-6">
             <div>
               <img
                 class="img-fluid w-100"

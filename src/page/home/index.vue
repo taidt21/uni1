@@ -1,6 +1,7 @@
 <!-- @format -->
 
 <script setup>
+import "./responsive.css";
 import description from "../../components/description.vue";
 import Button from "../../components/Button.vue";
 import sectionMuaHang from "../../components/section-mua-hang.vue";
@@ -17,7 +18,7 @@ import {
   A11y,
   Autoplay,
 } from "swiper/modules";
-// Import Swiper styles
+
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css";
@@ -27,6 +28,7 @@ import product3 from "../../../src/assets/image/product-item.png";
 import mayDanhTrung from "../../../src/assets/image/may-danh-trung-white.png";
 import canDienTu from "../../../src/assets/image/can-dien-tu-blue.png";
 import starIcon from "../../../src/assets/image/star.svg";
+import TaiDinh from "../../assets/image/tai-dinh.jpg";
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay]);
 const Products = ref([
   {
@@ -48,14 +50,14 @@ const SlideProducts = reactive([
     oldPrice: "300.000đ",
     newPrice: "150.000đ",
     image: mayDanhTrung,
-    url: "#",
+    url: "/chi-tiet-san-pham",
   },
   {
     name: "Cân điện tử",
     oldPrice: "800.000đ",
     newPrice: "600.000đ",
     image: canDienTu,
-    url: "#",
+    url: "/chi-tiet-san-pham",
   },
 ]);
 const checkAndDuplicateArray = (arr, targetLength) => {
@@ -82,8 +84,7 @@ const reviews = reactive([
   {
     name: "Đinh Tuấn Tài",
     position: "Nội trợ",
-    avatar:
-      "https://scontent.fhan4-2.fna.fbcdn.net/v/t39.30808-6/364773179_5738083419628286_917858268721733890_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=dTtBTlH0XT8AX-ai8SJ&_nc_ht=scontent.fhan4-2.fna&oh=00_AfBVPj8hD6AGc2lulNIrUSP-rnL8ue_MeYhlMdmAnqukQg&oe=64D31C80",
+    avatar: TaiDinh,
     content:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.",
     stars: 3,
@@ -91,8 +92,7 @@ const reviews = reactive([
   {
     name: "Đinh Tuấn Em",
     position: "Nội trợ",
-    avatar:
-      "https://scontent.fhan4-2.fna.fbcdn.net/v/t39.30808-6/364773179_5738083419628286_917858268721733890_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=dTtBTlH0XT8AX-ai8SJ&_nc_ht=scontent.fhan4-2.fna&oh=00_AfBVPj8hD6AGc2lulNIrUSP-rnL8ue_MeYhlMdmAnqukQg&oe=64D31C80",
+    avatar: TaiDinh,
     content:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.",
     stars: 5,
@@ -100,8 +100,7 @@ const reviews = reactive([
   {
     name: "Đinh Tuấn Anh",
     position: "Nội trợ",
-    avatar:
-      "https://scontent.fhan4-2.fna.fbcdn.net/v/t39.30808-6/364773179_5738083419628286_917858268721733890_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=dTtBTlH0XT8AX-ai8SJ&_nc_ht=scontent.fhan4-2.fna&oh=00_AfBVPj8hD6AGc2lulNIrUSP-rnL8ue_MeYhlMdmAnqukQg&oe=64D31C80",
+    avatar: TaiDinh,
     content:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.",
     stars: 1,
@@ -121,15 +120,18 @@ onMounted(() => {
 <template>
   <div>
     <!-- SECTION 1 -->
-    <section class="banner-home position-relative d-flex align-items-center">
-      <div class="position-absolute end-0 top-0 h-100 w-50">
+    <section
+      class="banner-home position-relative d-flex flex-column flex-md-row align-items-center">
+      <div class="position-absolute end-0 top-0 h-100 w-50 d-none d-md-block">
         <div class="position-absolute end-0 right-orange top-0 z-1">
           <img class="w-100" src="../../assets/image/bg-cam.png" alt="cam" />
         </div>
-        <div class="position-absolute center-green end-0 bottom-0 z-0">
+        <div
+          class="position-absolute center-green end-0 bottom-0 z-0 d-none d-md-block">
           <img class="w-100" src="../../assets/image/bg-xanh.png" alt="xanh" />
         </div>
-        <div class="position-absolute bottom-0 start-0 bottom-green z-1">
+        <div
+          class="position-absolute bottom-0 start-0 bottom-green z-1 d-none d-md-block">
           <img
             class="w-100"
             src="../../assets//image/bg-xanh-bottom.png"
@@ -140,10 +142,12 @@ onMounted(() => {
       <div
         class="container h-100 d-flex align-items-center position-relative z-5">
         <div class="row">
-          <div class="col">
+          <div class="col-12 col-md-6">
             <h1 class="title-home">
               <span class="d-block fw-bold">UNITECH </span>
-              <span class="d-block fw-bold mt-3">Việt Nam</span>
+              <span class="d-block fw-bold mt-2 mt-md-3 text-uppercase"
+                >Việt Nam</span
+              >
             </h1>
             <description
               class="mt-3"
@@ -151,17 +155,33 @@ onMounted(() => {
             <Button textBtn="Xem chi tiết" link="/" class="mt-4" />
             <listIconHome />
           </div>
-          <div class="col"></div>
+          <div class="col-12 col-md-auto"></div>
         </div>
       </div>
-      <div class="position-absolute banner-product z-3">
+      <div class="d-md-none col-12-inner position-relative">
+        <div class="position-absolute z-3 custom-position-image">
+          <img src="../../assets//image/banner-main.png" alt="product" />
+        </div>
+        <div class="position-absolute end-0 top-0 z-1">
+          <img src="../../assets/image/bong-cam-mobile-home.png" alt="orange" />
+        </div>
+        <div class="position-absolute end-0 bottom-0 z-0">
+          <img src="../../assets/image/bong-xanh-mobile-home.png" alt="green" />
+        </div>
+        <div class="position-absolute bottom-0 z-1 left-custom">
+          <img
+            src="../../assets/image/xanh-bottom-mobile-home.png"
+            alt="xanh" />
+        </div>
+      </div>
+      <div class="position-absolute banner-product z-3 d-none d-md-block">
         <img src="../../assets//image/banner-main.png" alt="product" />
       </div>
     </section>
     <!-- SECTION 2 -->
     <section class="section-2">
       <div class="container">
-        <div class="d-flex justify-content-center gap-5">
+        <div class="d-flex justify-content-center gap-5 gap-24">
           <div v-for="(item, index) in Products" :key="index">
             <div class="image-product text-center">
               <img class="img-fluid" :src="item.image" :alt="item.name" />
@@ -175,23 +195,27 @@ onMounted(() => {
     <section class="section-3 position-relative d-flex align-items-center">
       <div class="container h-100 d-flex align-items-center">
         <div class="row">
-          <div class="col">
+          <div class="col-sm-6">
             <div class="text-banner position-absolute text-unitech">
               UNITECH
             </div>
-            <titleH2 content="Máy đánh trứng" />
+            <titleH2>Máy đánh trứng</titleH2>
             <description
               class="mt-4"
               content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type." />
-            <Button class="mt-5" link="/" textBtn="Xem chi tiết" />
+            <Button
+              class="mt-5"
+              link="/chi-tiet-san-pham"
+              textBtn="Xem chi tiết" />
           </div>
-          <div class="col">
+          <div class="col-sm-6 d-flex flex-column">
             <div class="position-absolute may-danh-trung-image z-1">
               <img
                 src="../../assets/image/may-danh-trung.png"
                 alt="máy đánh trứng" />
             </div>
-            <div class="text-banner position-absolute bottom-0 end-0 z-0">
+            <div
+              class="text-banner text-vietnam position-absolute bottom-0 end-0 z-0">
               VIET NAM
             </div>
           </div>
@@ -199,37 +223,61 @@ onMounted(() => {
       </div>
     </section>
     <!-- SECTION 4 -->
-    <section class="section-4 d-flex align-items-center">
+    <section class="section-4 d-flex align-items-center position-relative">
       <div class="container d-flex h-100 align-items-center">
-        <div class="row">
-          <div class="col-6">
+        <div class="row flex-column-reverse flex-sm-row gap-5 gap-sm-0">
+          <div class="col-sm-6">
             <div class="position-relative">
-              <div class="text-banner position-absolute text-uni">UNI</div>
+              <div
+                class="text-banner position-absolute d-sm-block d-none text-uni">
+                UNI
+              </div>
+              <div class="text-banner text-uni-4 d-sm-none">TECH</div>
               <img
+                class="d-sm-none d-block"
+                src="../../assets/image/can-dien-tu-home-mobile.png"
+                alt="cân điện tử" />
+              <img
+                class="d-none d-sm-block"
                 src="../../assets/image/can-dien-tu-image.png"
                 alt="cân điện tử" />
-              <div class="position-absolute banh-1 z-1">
+              <div class="position-absolute banh-1 z-1 d-none d-sm-block">
                 <img src="../../assets/image/banh1.png" alt="cân điện tử" />
               </div>
-              <div class="position-absolute banh-2">
+              <div class="position-absolute banh-2 d-none d-sm-block">
                 <img src="../../assets/image/banh2.png" alt="cân điện tử" />
               </div>
-              <div class="position-absolute la-cay">
+              <div class="position-absolute la-cay d-none d-sm-block">
                 <img
                   src="../../assets/image/la-cay-image.png"
                   alt="cân điện tử" />
               </div>
             </div>
           </div>
-          <div class="col-6 position-relative ps-5">
-            <div class="text-banner position-absolute text-tech">TECH</div>
-            <titleH2 content="Cân điện tử" />
+          <div class="col-sm-6 position-relative ps-sm-5">
+            <div
+              class="text-banner position-absolute d-none d-sm-block text-tech">
+              TECH
+            </div>
+            <div
+              class="text-banner position-absolute d-sm-none start-0 text-uni-4">
+              UNI
+            </div>
+            <titleH2>Cân điện tử</titleH2>
             <description
               class="mt-4"
               content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type " />
-            <Button textBtn="Xem chi tiết" class="mt-5" />
+            <Button
+              textBtn="Xem chi tiết"
+              link="/chi-tiet-san-pham"
+              class="mt-5" />
           </div>
         </div>
+      </div>
+      <div class="position-absolute bottom-0 end-0 d-sm-none">
+        <img
+          src="../../assets/image/bong-orange-home-mobile.png"
+          alt="orange" />
       </div>
     </section>
     <!-- SECTION 5 -->
@@ -237,42 +285,18 @@ onMounted(() => {
       <div class="container h-100 d-flex align-items-center">
         <div class="row">
           <div
-            class="col-6 d-flex flex-column justify-content-center align-items-start">
-            <titleH2 content="Lò nướng" />
+            class="col-sm-6 d-flex flex-column justify-content-center align-items-start">
+            <titleH2>Lò nướng</titleH2>
             <description
               class="mt-4"
               content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type." />
             <Button textBtn="Xem chi tiết" class="mt-4" />
           </div>
-          <div class="col-6 position-relative">
-            <div class="tach-tra position-absolute z-3">
-              <img
-                class="img-fluid"
-                src="../../assets/image/tach-tra.png"
-                alt="lò vi sóng" />
-            </div>
+          <div class="col-sm-6 position-relative">
             <div class="position-relative z-2 lo-vi-song">
               <img
-                class="img-fluid"
-                src="../../assets/image/lo-vi-song.png"
-                alt="lò vi sóng" />
-              <div class="position-absolute shadow-lo-vi-song">
-                <img
-                  class="img-fluid"
-                  src="../../assets/image/shadow-lo-vi-song.png"
-                  alt="shadow" />
-              </div>
-              <div class="position-absolute shadow-lo-vi-song-2 top-0">
-                <img
-                  class="img-fluid"
-                  src="../../assets/image/shadow-lo-vi-song-2.png"
-                  alt="shadow lo vi song" />
-              </div>
-            </div>
-            <div class="position-absolute lo-hoa">
-              <img
-                class="img-fluid"
-                src="../../assets/image/lo-hoa.png"
+                class="lo-vi-song-custom"
+                src="../../assets/image/lo-vi-song-group.png"
                 alt="lò vi sóng" />
             </div>
           </div>
@@ -282,18 +306,28 @@ onMounted(() => {
     <!-- SECTION 6 -->
     <section class="section-6">
       <div class="container">
-        <titleH2 content="Sản phẩm mới" class="text-center mb-5" />
+        <titleH2 class="text-center mb-5">Sản phẩm mới</titleH2>
         <swiper
           class="slide-product overflow-visible"
-          :slides-per-view="3"
+          :slides-per-view="1"
+          :breakpoints="{
+            '576': {
+              slidesPerView: 2,
+              spaceBetween: 24,
+            },
+            '992': {
+              slidesPerView: 3,
+              spaceBetween: 30,
+            },
+          }"
           navigation
           loop="true"
           :pagination="{ clickable: true, dynamicBullets: true }"
-          :space-between="30"
+          :space-between="16"
           :speed="800">
           <swiper-slide v-for="(item, index) in SlideProducts" :key="index">
             <div
-              class="text-center h-100 d-flex flex-column justify-content-end">
+              class="text-center h-100 d-flex flex-column justify-content-end p-5">
               <div class="product-item-image fw-semibold text-black">
                 <img class="img-fluid" :src="item.image" :alt="item.name" />
               </div>
@@ -319,26 +353,28 @@ onMounted(() => {
     <sectionMuaHang />
     <!-- section 8 -->
     <section class="section-8 d-flex align-items-center">
-      <div class="container h-100 d-flex align-items-center">
+      <div
+        class="container h-100 d-flex align-items-center flex-column flex-sm-row">
         <div class="bg-white box-form position-relative">
-          <div class="position-absolute bg-section-8 circle-center z-0">
+          <div
+            class="position-absolute bg-section-8 circle-center z-0 d-sm-block d-none">
             <img
               class="img-fluid"
               src="../../assets/image/bg-section-8.jpg"
               alt="background" />
           </div>
           <div class="position-relative box-form-inner z-2 bg-white">
-            <titleH2
-              content="Đăng ký thành đại lý"
-              class="text-center position-relative z-1" />
+            <titleH2 class="text-center position-relative z-1"
+              >Đăng ký thành đại lý</titleH2
+            >
             <description
               class="text-center position-relative z-1"
               content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's " />
             <div class="row row-gap-4 position-relative z-1">
-              <div class="col-6">
+              <div class="col-sm-6">
                 <input type="text" placeholder="Họ và tên" />
               </div>
-              <div class="col-6">
+              <div class="col-sm-6">
                 <input type="number" placeholder="Số điện thoại" />
               </div>
               <div class="col-12">
@@ -353,22 +389,38 @@ onMounted(() => {
             </div>
           </div>
         </div>
+        <div class="d-sm-none">
+          <img
+            class="img-fluid"
+            src="../../assets/image/bg-section-8.jpg"
+            alt="background" />
+        </div>
       </div>
     </section>
     <!-- section 9 -->
     <section class="section-9 d-flex flex-column">
       <div
         class="container h-100 flex-grow-1 justify-content-center d-flex flex-column">
-        <titleH2
-          content="Tin tức & Sự kiện"
-          class="text-center title-section-9 mb-5" />
+        <titleH2 class="text-center title-section-9 mb-5"
+          >Tin tức & Sự kiện</titleH2
+        >
         <Swiper
-          class="swiper w-100 overflow-visible d-flex flex-column justify-content-center pb-4"
-          :slides-per-view="3"
+          class="swiper w-100 overflow-visible d-flex flex-column justify-content-center pb-sm-4"
+          :slides-per-view="1"
+          :breakpoints="{
+            '576': {
+              slidesPerView: 2,
+              spaceBetween: 24,
+            },
+            '992': {
+              slidesPerView: 3,
+              spaceBetween: 30,
+            },
+          }"
           navigation
           loop="true"
           :pagination="{ clickable: true, dynamicBullets: true }"
-          :space-between="30"
+          :space-between="16"
           :speed="800">
           <swiper-slide v-for="(item, index) in dataPost.value" :key="index">
             <div class="d-flex flex-column">
@@ -393,14 +445,29 @@ onMounted(() => {
     <!-- section 10 -->
     <section class="section-10 d-flex align-items-center">
       <div class="container">
-        <titleH2 content="Đánh giá khách hàng" class="text-center mb-5" />
+        <titleH2 class="text-sm-center mb-5"
+          >Đánh giá
+          <span class="d-block d-sm-inline-block fw-bold">
+            khách hàng
+          </span></titleH2
+        >
         <swiper
           class="swiper overflow-visible pb-5"
-          :slides-per-view="3"
+          :slides-per-view="1"
+          :breakpoints="{
+            '576': {
+              slidesPerView: 2,
+              spaceBetween: 24,
+            },
+            '992': {
+              slidesPerView: 3,
+              spaceBetween: 30,
+            },
+          }"
           loop="true"
           autoplay="true"
           :pagination="{ clickable: true, dynamicBullets: true }"
-          :space-between="30"
+          :space-between="16"
           :speed="800">
           <swiper-slide v-for="(item, index) in reviews" :key="index">
             <div>
@@ -442,6 +509,8 @@ onMounted(() => {
 .banner-product {
   right: 3.8vw;
   bottom: 50%;
+  -webkit-transform: translateY(50%);
+  -ms-transform: translateY(50%);
   transform: translateY(50%);
   width: 49vw;
 }
@@ -478,6 +547,8 @@ onMounted(() => {
 .may-danh-trung-image {
   width: 39vw;
   top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   right: 7vw;
 }
@@ -505,11 +576,17 @@ onMounted(() => {
 }
 .text-tech {
   top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   left: -10%;
 }
 /*section-5*/
 .section-5 {
+  background-image: url("../../assets/image/section-5-home-bg.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   min-height: 100vh;
 }
 .lo-hoa {
@@ -524,6 +601,10 @@ onMounted(() => {
 }
 .lo-vi-song {
   width: 35vw;
+}
+.lo-vi-song-custom {
+  max-width: unset !important;
+  width: 140%;
 }
 .shadow-lo-vi-song {
   bottom: -10%;
@@ -567,10 +648,12 @@ onMounted(() => {
   bottom: 5px;
 }
 .swiper-button-next::after {
+  -ms-transform: rotate(-45deg);
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
 }
 .swiper-button-prev::after {
+  -ms-transform: rotate(135deg);
   transform: rotate(135deg);
   -webkit-transform: rotate(135deg);
 }
@@ -596,6 +679,8 @@ onMounted(() => {
 }
 .swiper-slide {
   height: unset;
+  -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
   transition: 0.4s;
   opacity: 0;
 }
@@ -603,8 +688,11 @@ onMounted(() => {
 .swiper-slide-next,
 .swiper-slide-active {
   opacity: 1;
+  box-shadow: 0px 2px 50px 0px #0000000f;
 }
 .swiper-wrapper {
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
   align-items: stretch;
 }
 .section-6 .product-item-name {
@@ -623,6 +711,8 @@ onMounted(() => {
   height: 6px;
   border-radius: 0;
   opacity: 40%;
+  -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
   transition: 0.4s;
   background-color: #595959 !important;
 }
@@ -646,6 +736,7 @@ onMounted(() => {
 }
 .box-form {
   max-width: 767px;
+  -webkit-box-shadow: 0px 2px 40px 0px #0000001a;
   box-shadow: 0px 2px 40px 0px #0000001a;
   background: #fff;
 }
@@ -701,11 +792,13 @@ onMounted(() => {
   overflow: hidden;
 }
 .avatar-review img {
+  -o-object-fit: cover;
   object-fit: cover;
   width: 100%;
   height: 100%;
 }
 .swiper-slide {
+  cursor: -webkit-grab;
   cursor: grab;
 }
 .name-review {
@@ -720,10 +813,14 @@ onMounted(() => {
   bottom: 0 !important;
 }
 .stars-review img {
+  -webkit-filter: brightness(0) saturate(100%) invert(36%) sepia(1%)
+    saturate(0%) hue-rotate(150deg) brightness(90%) contrast(87%);
   filter: brightness(0) saturate(100%) invert(36%) sepia(1%) saturate(0%)
     hue-rotate(150deg) brightness(90%) contrast(87%);
 }
 .stars-review .active img {
+  -webkit-filter: brightness(0) saturate(100%) invert(45%) sepia(99%)
+    saturate(770%) hue-rotate(5deg) brightness(103%) contrast(101%);
   filter: brightness(0) saturate(100%) invert(45%) sepia(99%) saturate(770%)
     hue-rotate(5deg) brightness(103%) contrast(101%);
 }

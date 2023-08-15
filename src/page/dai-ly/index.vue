@@ -10,6 +10,7 @@ import chatLuong from "../../../src/assets/image/chat-luong-cao.svg";
 import phatTrien from "../../../src/assets/image/co-hoi-phat-trien.svg";
 import chietKhau from "../../../src/assets/image/chiet-khau-cao.svg";
 import hoTro from "../../../src/assets/image/ho-tro-dai-ly.svg";
+import "./responsive.css";
 const data = reactive([
   {
     title: "Chất lượng cao",
@@ -54,10 +55,10 @@ const data = reactive([
           alt="gradient" />
       </div>
       <div class="container">
-        <div class="row h-100vh">
+        <breakpoint breakpoint1="Trang chủ" breakpoint2="Đại lý" />
+        <div class="row h-100vh flex-column-reverse flex-lg-row">
           <div
-            class="col-6 d-flex flex-column justify-content-end position-relative z-0">
-            <breakpoint breakpoint1="Trang chủ" breakpoint2="Đại lý" />
+            class="col-lg-6 col-12 d-flex flex-column justify-content-end position-relative mt-5 mt-lg-0 z-0">
             <div class="position-relative">
               <div class="text-banner text-dai-ly-uni position-absolute">
                 UNI
@@ -77,11 +78,12 @@ const data = reactive([
                 alt="đại lý" />
             </div>
           </div>
-          <div class="col-6 d-flex align-items-center position-relative z-2">
+          <div
+            class="col-lg-6 col-12 d-flex align-items-center position-relative z-2">
             <div class="form-container bg-white text-center">
-              <titleH2
-                content="Đăng ký thành đại lý"
-                class="text-uppercase text-center" />
+              <titleH2 class="text-uppercase text-center"
+                >Đăng ký thành đại lý</titleH2
+              >
               <description
                 content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's "
                 class="text-center mt-3 pt-1" />
@@ -116,14 +118,17 @@ const data = reactive([
         </div>
       </div>
     </section>
+    <!-- SECTION 2 -->
     <section class="section-dai-ly-2">
       <div class="container text-center">
-        <titleH2
-          content="TẠI SAO NÊN CHỌN UNITECH 
-        TRỞ THÀNH ĐẠI LÝ"
-          class="text-center" />
+        <titleH2 class="text-center"
+          >TẠI SAO NÊN CHỌN UNITECH TRỞ THÀNH ĐẠI LÝ</titleH2
+        >
         <div class="row mt-5 pt-3 pb-3">
-          <div class="col-3" v-for="(item, index) in data" :key="index">
+          <div
+            class="col-lg-3 col-6 p-2"
+            v-for="(item, index) in data"
+            :key="index">
             <div class="bg-white text-center box-inner position-relative z-1">
               <div class="icon-box">
                 <img :src="item.icon" :alt="item.title" class="img-fluid" />
@@ -155,7 +160,10 @@ const data = reactive([
               </span>
               <span class="d-block icon-title text-blue">19009207</span>
             </a>
-            <Button textBtn="Liên hệ ngay" class="btn-contact" />
+            <Button
+              textBtn="Liên hệ ngay"
+              link="tel:19009207"
+              class="btn-contact" />
           </div>
           <div class="position-relative background-section-3">
             <img
@@ -177,12 +185,14 @@ const data = reactive([
 <style scoped>
 .section-dai-ly-1 {
   padding-top: 100px;
+  background: #fff9f2;
 }
 .h-100vh {
   min-height: calc(100vh - 100px);
 }
 .form-container {
   max-width: 562px;
+  -webkit-box-shadow: 0px 2px 50px 0px #0000000f;
   box-shadow: 0px 2px 50px 0px #0000000f;
 
   padding: 40px;
@@ -217,8 +227,10 @@ const data = reactive([
 }
 .icon-box img {
   width: 48px;
+  height: 48px;
 }
 .box-inner {
+  -webkit-box-shadow: 0px 2px 50px 0px #0000000f;
   box-shadow: 0px 2px 50px 0px #0000000f;
   height: 100%;
   padding: 16px 24px;
@@ -230,9 +242,13 @@ const data = reactive([
   padding-top: 120px;
 }
 .box-section-3 {
+  -webkit-box-shadow: 0px 2px 50px 0px #0000000f;
   box-shadow: 0px 2px 50px 0px #0000000f;
-  width: 402px;
+  max-width: 402px;
+  width: 100%;
   padding-top: 35px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
   height: fit-content;
   margin-right: -110px;
 }
@@ -240,6 +256,8 @@ const data = reactive([
   margin-left: -110px;
 }
 .box-section-3 a {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
 }
 .icon-tell {

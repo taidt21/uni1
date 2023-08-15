@@ -13,4 +13,9 @@ const { content } = defineProps(["content"]);
   font-size: 16px;
   color: #2e2e2e;
 }
+@media (max-width: 992px) {
+  .description {
+    font-size: 14px;
+  }
+}
 </style>

@@ -89,7 +89,7 @@ const social = ref([
 </script>
 <template>
   <div>
-    <div class="search-container">
+    <div class="search-container d-none d-lg-block">
       <h3 class="title fw-semibold text-uppercase text-blue">Tìm kiếm</h3>
       <div class="search-form">
         <input type="text" placeholder="Tìm kiếm..." class="w-100" />
@@ -97,7 +97,9 @@ const social = ref([
     </div>
     <div class="divider"></div>
     <div class="new-blog-container">
-      <h3 class="title fw-semibold text-uppercase text-blue">TIN MỚI NHẤT</h3>
+      <h3 class="title fw-semibold text-uppercase text-blue mb-4 mb-lg0">
+        TIN MỚI NHẤT
+      </h3>
       <div class="new-blogs gap-3 d-flex flex-column">
         <div
           class="new-blog-item"
@@ -107,7 +109,8 @@ const social = ref([
           <router-link :to="item.url" class="blog-news-image d-block">
             <img :src="item.image" :alt="item.title" class="img-fluid" />
           </router-link>
-          <div class="blog-news-content">
+          <div
+            class="blog-news-content d-flex d-lg-block justify-content-center flex-column gap-3">
             <div class="d-flex align-items-center gap-2">
               <div class="date-icon">
                 <img src="../../src/assets/image/calendar.svg" alt="calendar" />
@@ -127,7 +130,9 @@ const social = ref([
     </div>
     <div class="divider"></div>
     <div>
-      <h3 class="title fw-semibold text-uppercase text-blue">Tìm kiếm</h3>
+      <h3 class="title fw-semibold text-uppercase text-blue">
+        Theo dõi chúng tôi
+      </h3>
       <div class="social-container gap-4 mt-4 d-flex">
         <a
           :href="item.url"
@@ -177,6 +182,8 @@ const social = ref([
   font-size: 12px;
 }
 .new-blog-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 .blogs-new-title a {
@@ -191,6 +198,7 @@ const social = ref([
   width: 30%;
 }
 .blog-news-content {
+  -ms-flex-negative: 50;
   flex-shrink: 50;
   padding-left: 18px;
 }
@@ -202,6 +210,8 @@ const social = ref([
   width: 40px;
 }
 .register-container button {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
 }
 </style>

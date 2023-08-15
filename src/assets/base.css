@@ -118,6 +118,13 @@ html {
   pointer-events: none;
 }
 
+@media(max-width:576px) {
+  .text-banner {
+    font-size: 80px;
+    line-height: 96px;
+  }
+}
+
 /* CSS Transition */
 .fade-in-up {
   animation: fadeInUp 0.6s ease-out;
@@ -131,4 +138,8 @@ html {
 .pagination-item.active {
   background-color: var(--dark-blue);
   color: #fff !important;
+}
+
+.text-blue {
+  color: var(--dark-blue)
 }

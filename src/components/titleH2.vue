@@ -1,7 +1,9 @@
 <!-- @format -->
 
 <template>
-  <h2 class="title-h2 fw-bold">{{ content }}</h2>
+  <h2 class="title-h2 fw-bold">
+    <slot></slot>
+  </h2>
 </template>
 
 <script setup>
@@ -11,6 +13,16 @@ const { content } = defineProps(["content"]);
 <style scoped>
 .title-h2 {
   color: var(--dark-blue);
-  font-size: 40px;
+  font-size: 50px;
+}
+@media (max-width: 992px) {
+  .title-h2 {
+    font-size: 35px;
+  }
+}
+@media (max-width: 576px) {
+  .title-h2 {
+    font-size: 24px;
+  }
 }
 </style>

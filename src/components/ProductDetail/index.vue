@@ -4,7 +4,7 @@
 import breakpoint from "../breakpoint.vue";
 import Button from "../Button.vue";
 import description from "../description.vue";
-
+import titleH2 from "../titleH2.vue";
 import {
   ref,
   onMounted,
@@ -26,8 +26,8 @@ import {
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css";
+import "./responsive.css";
 
-const product = ref(null);
 import mayDanhTrung1 from "../../../src/assets/image/may-danh-trung-1.png";
 import mayDanhTrung2 from "../../../src/assets/image/may-danh-trung-white-2.png";
 import mayDanhTrung3 from "../../../src/assets/image/may-danh-trung-white-3.png";
@@ -113,45 +113,48 @@ const ecommerces = ref([
   },
 ]);
 
-//STICKY DATA
+//STICKY DATA TABLE
 const rowLayout = ref(null);
 const stickyElement = ref(null);
 const unfixed = ref(undefined);
 
-let sticky = ref(undefined);
+const sticky = ref(undefined);
 
 function scrollSticky() {
-  const heightContainer = rowLayout.value.clientHeight;
-  const positionContainer = ref(undefined);
-  if (rowLayout.value) {
-    positionContainer.value = rowLayout.value.getBoundingClientRect().top;
-  }
-  if (
-    window.scrollY <= heightContainer - stickyElement.value.clientHeight &&
-    window.scrollY > 0
-  ) {
-    sticky.value = true;
-    unfixed.value = false;
-    if (stickyElement.value) {
-      stickyElement.value.style.top = `${
-        positionContainer.value + window.scrollY
-      }px`;
+  if (window.innerWidth > 992) {
+    const heightContainer = rowLayout.value.clientHeight;
+    const positionContainer = ref(undefined);
+    if (rowLayout.value) {
+      positionContainer.value = rowLayout.value.getBoundingClientRect().top;
     }
-  } else if (window.scrollY <= 0) {
-    sticky.value = false;
-    unfixed.value = false;
-  } else {
-    unfixed.value = true;
-    sticky.value = false;
-    if (stickyElement.value) {
-      stickyElement.value.style.top = "unset";
+    if (
+      window.scrollY <= heightContainer - stickyElement.value.clientHeight &&
+      window.scrollY > 0
+    ) {
+      sticky.value = true;
+      unfixed.value = false;
+      if (stickyElement.value) {
+        stickyElement.value.style.top = `${
+          positionContainer.value + window.scrollY
+        }px`;
+      }
+    } else if (window.scrollY <= 0) {
+      sticky.value = false;
+      unfixed.value = false;
+    } else {
+      unfixed.value = true;
+      sticky.value = false;
+      if (stickyElement.value) {
+        stickyElement.value.style.top = "unset";
+      }
     }
   }
 }
 
 onMounted(() => {
   window.addEventListener("scroll", scrollSticky);
-  if (stickyElement.value) {
+
+  if (stickyElement.value && window.innerWidth > 992) {
     const width = stickyElement.value.clientHeight;
     console.log(width);
     stickyElement.value.style.width = `${width}px`;
@@ -302,6 +305,14 @@ const Related = reactive([
     url: "can-dien-tu",
   },
 ]);
+const checkAndDuplicateArray = (arr, targetLength) => {
+  if (arr.length < targetLength) {
+    while (arr.length < targetLength) {
+      const duplicatedElements = arr.map((item) => ({ ...item })); // Create a shallow copy of the array elements
+      arr.push(...duplicatedElements);
+    }
+  }
+};
 
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay]);
 </script>
@@ -315,8 +326,8 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay]);
           breakpoint3="Chi tiết sản phẩm"
           breakpoint1="Trang chủ" />
         <div class="row position-relative" ref="rowLayout">
-          <div class="col-6 position-relative">
-            <div class="list-image d-flex flex-column">
+          <div class="col-lg-4 position-relative">
+            <div class="list-image d-lg-flex flex-column d-none">
               <div
                 class="image-item"
                 v-for="(item, index) in imageProduct"
@@ -324,13 +335,28 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay]);
                 <img class="img-fluid w-100" :src="item" alt="product" />
               </div>
             </div>
+            <!-- Slide mobile -->
+            <Swiper
+              class="d-lg-none"
+              :slides-per-view="1"
+              loop="true"
+              :pagination="{ clickable: true, dynamicBullets: true }"
+              :space-between="16"
+              :speed="800">
+              <swiper-slide v-for="(item, index) in imageProduct" :key="index">
+                <div class="p-4">
+                  <img :src="item" alt="product" />
+                </div>
+              </swiper-slide>
+            </Swiper>
+            <!--  -->
           </div>
-          <div class="col-6 position-relative">
+          <div class="col-lg-8 mt-lg-0 mt-5 position-relative">
             <div
               class="sticky-data"
               :class="{ active: sticky, noActive: unfixed }"
               ref="stickyElement">
-              <h1>Máy đánh trứng</h1>
+              <titleH2>Máy đánh trứng</titleH2>
               <div class="d-flex gap-3 align-items-center">
                 <div class="new-price text-blue fw-semibold">666.006đ</div>
                 <div class="old-price">
@@ -373,15 +399,17 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay]);
     <section class="section-detail-2">
       <div class="container">
         <div class="tab-container">
-          <div class="tab-contaner-title d-flex position-relative">
-            <button
-              class="tab-title-item text-blue fw-bold bg-transparent"
-              :class="{ active: activeTab === index }"
-              v-for="(item, index) in dataTab"
-              :key="index"
-              @click="handleTab(index, item)">
-              {{ item.title }}
-            </button>
+          <div class="overflow-auto">
+            <div class="tab-contaner-title d-flex position-relative">
+              <button
+                class="tab-title-item text-blue fw-bold bg-transparent"
+                :class="{ active: activeTab === index }"
+                v-for="(item, index) in dataTab"
+                :key="index"
+                @click="handleTab(index, item)">
+                {{ item.title }}
+              </button>
+            </div>
           </div>
           <div class="tab-container-content">
             <div
@@ -401,12 +429,22 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay]);
     </section>
     <section class="section-detail-3">
       <div class="container">
-        <TitleH2 content="Có thể bạn quan tâm" class="text-center" />
+        <TitleH2 class="text-lg-center text-start">Có thể bạn quan tâm</TitleH2>
         <swiper
-          :slides-per-view="3"
+          :slides-per-view="1"
+          :breakpoints="{
+            '576': {
+              slidesPerView: 2,
+              spaceBetween: 24,
+            },
+            '992': {
+              slidesPerView: 3,
+              spaceBetween: 30,
+            },
+          }"
           loop="true"
           :pagination="{ clickable: true, dynamicBullets: true }"
-          :space-between="30"
+          :space-between="16"
           :speed="800">
           <swiper-slide
             v-for="(item, index) in Related"
@@ -462,6 +500,7 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay]);
 .table-data-item {
   padding: 8px 10px;
   border-bottom: 1px solid #d7d4d4;
+  gap: 16px;
 }
 .table-data-item:nth-child(odd) {
   border-right: 1px solid #d7d4d4;
@@ -483,6 +522,8 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay]);
   margin-bottom: 49px;
 }
 .sticky-data {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
   height: fit-content;
 }
 .sticky-data.noActive {
@@ -512,6 +553,8 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay]);
   bottom: 0;
   right: -100%;
   width: 100%;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
   transition: 0.3s;
 }
 .tab-title-item.active::after {
@@ -548,6 +591,8 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay]);
   height: 6px;
   border-radius: 0;
   opacity: 40%;
+  -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
   transition: 0.4s;
   background-color: #595959 !important;
 }
@@ -560,6 +605,8 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay]);
   font-size: 14px;
   color: var(--dark-blue);
   border: 1px solid var(--dark-blue);
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   margin: 0 auto;
   text-decoration: none;
@@ -567,7 +614,12 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay]);
   margin-top: 30px;
 }
 .product-item {
+  -webkit-box-shadow: 0px 2px 50px 0px #0000000f;
   box-shadow: 0px 2px 50px 0px #0000000f;
   padding: 35px 40px;
+}
+.product-item-image img {
+  -o-object-fit: cover;
+  object-fit: cover;
 }
 </style>

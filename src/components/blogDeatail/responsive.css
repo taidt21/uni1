@@ -1,0 +1,11 @@
+@media(max-width:992px) {
+    .text-date {
+        font-size: 16px !important;
+    }
+
+    .icon-date {
+        width: 16px !important;
+        height: 16px !important;
+        display: flex;
+    }
+}

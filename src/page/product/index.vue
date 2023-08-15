@@ -3,13 +3,13 @@
 import bannerPage from "../../components/bannerPage.vue";
 import { reactive, ref, computed } from "vue";
 import { useRouter } from "vue-router";
-
+import "./responsive.css";
 //image product
 import mayDanhTrungWhite from "../../../src/assets/image/may-danh-trung-white.png";
 import mayDanhTrungBlack from "../../../src/assets/image/may-danh-trung-black.png";
 import canDienTuBlue from "../../../src/assets/image/can-dien-tu-blue.png";
 import loNuong from "../../../src/assets/image/lo-vi-song.png";
-const categgorys = ref(["Máy đánh trứng", "Cân điện tử", "Lò nướng"]);
+const categgorys = ref(["Tất cả", "Máy đánh trứng", "Cân điện tử", "Lò nướng"]);
 const products = reactive([
   {
     name: "Máy đánh trứng",
@@ -17,78 +17,6 @@ const products = reactive([
     newPrice: "500.000đ",
     oldPrice: "756.000đ",
     url: "may-danh-trung",
-    category: categgorys.value[0],
-  },
-  {
-    name: "Máy đánh trứng",
-    image: mayDanhTrungBlack,
-    newPrice: "390.000đ",
-    oldPrice: "756.000đ",
-    url: "may-danh-trung-2",
-    category: categgorys.value[0],
-  },
-  {
-    name: "Cân điện tử",
-    image: canDienTuBlue,
-    newPrice: "400.000đ",
-    oldPrice: "56.000đ",
-    url: "can-dien-tu",
-    category: categgorys.value[1],
-  },
-  {
-    name: "Lò nướng",
-    image: loNuong,
-    newPrice: "350.000đ",
-    oldPrice: "806.000đ",
-    url: "lo-nuong",
-    category: categgorys.value[2],
-  },
-  {
-    name: "Cân điện tử",
-    image: canDienTuBlue,
-    newPrice: "400.000đ",
-    oldPrice: "56.000đ",
-    url: "can-dien-tu",
-    category: categgorys.value[1],
-  },
-  {
-    name: "Lò nướng",
-    image: loNuong,
-    newPrice: "350.000đ",
-    oldPrice: "806.000đ",
-    url: "lo-nuong",
-    category: categgorys.value[2],
-  },
-  {
-    name: "Máy đánh trứng",
-    image: mayDanhTrungBlack,
-    newPrice: "390.000đ",
-    oldPrice: "756.000đ",
-    url: "may-danh-trung-2",
-    category: categgorys.value[0],
-  },
-  {
-    name: "Lò nướng",
-    image: loNuong,
-    newPrice: "350.000đ",
-    oldPrice: "806.000đ",
-    url: "lo-nuong",
-    category: categgorys.value[2],
-  },
-  {
-    name: "Lò nướng",
-    image: loNuong,
-    newPrice: "350.000đ",
-    oldPrice: "806.000đ",
-    url: "lo-nuong",
-    category: categgorys.value[2],
-  },
-  {
-    name: "Cân điện tử",
-    image: canDienTuBlue,
-    newPrice: "400.000đ",
-    oldPrice: "56.000đ",
-    url: "can-dien-tu",
     category: categgorys.value[1],
   },
   {
@@ -97,7 +25,15 @@ const products = reactive([
     newPrice: "390.000đ",
     oldPrice: "756.000đ",
     url: "may-danh-trung-2",
-    category: categgorys.value[0],
+    category: categgorys.value[1],
+  },
+  {
+    name: "Cân điện tử",
+    image: canDienTuBlue,
+    newPrice: "400.000đ",
+    oldPrice: "56.000đ",
+    url: "can-dien-tu",
+    category: categgorys.value[2],
   },
   {
     name: "Lò nướng",
@@ -105,6 +41,78 @@ const products = reactive([
     newPrice: "350.000đ",
     oldPrice: "806.000đ",
     url: "lo-nuong",
+    category: categgorys.value[3],
+  },
+  {
+    name: "Cân điện tử",
+    image: canDienTuBlue,
+    newPrice: "400.000đ",
+    oldPrice: "56.000đ",
+    url: "can-dien-tu",
+    category: categgorys.value[2],
+  },
+  {
+    name: "Lò nướng",
+    image: loNuong,
+    newPrice: "350.000đ",
+    oldPrice: "806.000đ",
+    url: "lo-nuong",
+    category: categgorys.value[3],
+  },
+  {
+    name: "Máy đánh trứng",
+    image: mayDanhTrungBlack,
+    newPrice: "390.000đ",
+    oldPrice: "756.000đ",
+    url: "may-danh-trung-2",
+    category: categgorys.value[1],
+  },
+  {
+    name: "Lò nướng",
+    image: loNuong,
+    newPrice: "350.000đ",
+    oldPrice: "806.000đ",
+    url: "lo-nuong",
+    category: categgorys.value[3],
+  },
+  {
+    name: "Lò nướng",
+    image: loNuong,
+    newPrice: "350.000đ",
+    oldPrice: "806.000đ",
+    url: "lo-nuong",
+    category: categgorys.value[3],
+  },
+  {
+    name: "Cân điện tử",
+    image: canDienTuBlue,
+    newPrice: "400.000đ",
+    oldPrice: "56.000đ",
+    url: "can-dien-tu",
+    category: categgorys.value[2],
+  },
+  {
+    name: "Máy đánh trứng",
+    image: mayDanhTrungBlack,
+    newPrice: "390.000đ",
+    oldPrice: "756.000đ",
+    url: "may-danh-trung-2",
+    category: categgorys.value[1],
+  },
+  {
+    name: "Lò nướng",
+    image: loNuong,
+    newPrice: "350.000đ",
+    oldPrice: "806.000đ",
+    url: "lo-nuong",
+    category: categgorys.value[3],
+  },
+  {
+    name: "Cân điện tử",
+    image: canDienTuBlue,
+    newPrice: "400.000đ",
+    oldPrice: "56.000đ",
+    url: "can-dien-tu",
     category: categgorys.value[2],
   },
   {
@@ -113,28 +121,21 @@ const products = reactive([
     newPrice: "400.000đ",
     oldPrice: "56.000đ",
     url: "can-dien-tu",
-    category: categgorys.value[1],
-  },
-  {
-    name: "Cân điện tử",
-    image: canDienTuBlue,
-    newPrice: "400.000đ",
-    oldPrice: "56.000đ",
-    url: "can-dien-tu",
-    category: categgorys.value[1],
+    category: categgorys.value[2],
   },
 ]);
 
 const filteredProducts = ref(products);
-
-function filterProducts(category) {
-  if (category === "all") {
+const activeBtn = ref(0);
+function filterProducts(category, index) {
+  if (category === categgorys.value[0]) {
     filteredProducts.value = products;
   } else {
     filteredProducts.value = products.filter(
       (product) => product.category === category
     );
   }
+  activeBtn.value = index;
   currentPage.value = 1;
 }
 
@@ -155,6 +156,7 @@ const paginatedProducts = computed(() => {
 // Method to change the current page
 const changePage = (pageNumber) => {
   currentPage.value = pageNumber;
+  console.log(totalPages.value);
 };
 </script>
 
@@ -163,14 +165,12 @@ const changePage = (pageNumber) => {
     <bannerPage content="SẢN PHẨM" />
     <section class="section-2">
       <div class="container">
-        <div class="d-flex gap-3 justify-content-center">
-          <button class="btn-product size-lg" @click="filterProducts('all')">
-            Tất cả
-          </button>
-
+        <div
+          class="d-md-flex gap-3 justify-content-center btn-categorys-container d-grid">
           <button
             class="btn-product size-lg"
-            @click="filterProducts(item)"
+            @click="filterProducts(item, index)"
+            :class="{ active: activeBtn === index }"
             v-for="(item, index) in categgorys"
             :key="index">
             {{ item }}
@@ -186,9 +186,13 @@ const changePage = (pageNumber) => {
             </div>
             <h3 class="product-name text-black mb-3">{{ item.name }}</h3>
             <div class="d-flex justify-content-center align-items-center gap-3">
-              <div class="text-blue fw-semibold">{{ item.newPrice }}</div>
+              <div class="text-blue fw-semibold text-12">
+                {{ item.newPrice }}
+              </div>
               <small>
-                <del class="text-blue old-price">{{ item.oldPrice }}</del>
+                <del class="text-blue old-price text-10">{{
+                  item.oldPrice
+                }}</del>
               </small>
             </div>
             <router-link
@@ -201,8 +205,8 @@ const changePage = (pageNumber) => {
         <div class="pagination d-flex justify-content-center gap-2 mt-5">
           <button
             class="pagination-item btn-product"
-            v-for="pageNumber in totalPages"
-            :key="pageNumber"
+            v-for="(pageNumber, index) in totalPages"
+            :key="index"
             :class="{ active: pageNumber === currentPage }"
             @click="changePage(pageNumber)">
             {{ pageNumber }}
@@ -234,7 +238,8 @@ const changePage = (pageNumber) => {
   color: var(--dark-blue);
   transition: 0.4s;
 }
-.btn-product:hover {
+.btn-product:hover,
+.btn-product.active {
   background-color: var(--dark-blue);
   color: #fff;
 }

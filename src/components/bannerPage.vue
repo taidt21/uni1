@@ -1,4 +1,5 @@
 <!-- @format -->
+
 <script setup>
 import titleH2 from "./titleH2.vue";
 import breakpoint from "./breakpoint.vue";
@@ -17,7 +18,7 @@ defineProps({
       <img src=".././assets/image/bg-left.png" alt="bg-left" />
     </div>
     <div class="container d-flex flex-column align-items-center gap-3">
-      <titleH2 class="text-center" :content="content" />
+      <titleH2 class="text-center">{{ content }}</titleH2>
       <breakpoint breakpoint1="Trang chủ" :breakpoint2="content" />
     </div>
     <div class="position-absolute end-0 bottom-0 z-1">
@@ -36,5 +37,10 @@ section {
   background-position: center;
   background-color: #fff9f2;
   background-size: cover;
+}
+@media (max-width: 576px) {
+  section {
+    height: 260px;
+  }
 }
 </style>

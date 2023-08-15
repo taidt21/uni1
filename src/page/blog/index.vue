@@ -7,6 +7,7 @@ import Button from "../../components/Button.vue";
 import bannerPage from "../../components/bannerPage.vue";
 import sideBarBlog from "../../components/sideBar-blog.vue";
 import image from "../../../src/assets/image/blog-1.jpg";
+import "./responsive.css";
 const data = reactive([
   {
     title:
@@ -131,7 +132,13 @@ const changePage = (pageNumber) => {
     <section class="section-blog-2">
       <div class="container">
         <div class="row">
-          <div class="col-8">
+          <div class="col-lg-8">
+            <div class="search-form search-form-mobile d-lg-none">
+              <h3 class="title fw-semibold text-uppercase text-blue mb-3">
+                Tìm kiếm
+              </h3>
+              <input type="text" placeholder="Tìm kiếm..." class="w-100" />
+            </div>
             <div class="blog-container">
               <div
                 class="blog-item"
@@ -158,7 +165,7 @@ const changePage = (pageNumber) => {
                         src="../../../src/assets/image/calendar.svg"
                         alt="calendar" />
                     </div>
-                    <div class="text-blue">
+                    <div class="text-blue text-14">
                       {{ item.date }}
                     </div>
                   </div>
@@ -183,7 +190,7 @@ const changePage = (pageNumber) => {
             </div>
             <div class="pagination d-flex justify-content-center gap-2 mt-5">
               <button
-                class="pagination-item"
+                class="pagination-item btn-product"
                 v-for="pageNumber in totalPages"
                 :key="pageNumber"
                 :class="{ active: pageNumber === currentPage }"
@@ -192,7 +199,7 @@ const changePage = (pageNumber) => {
               </button>
             </div>
           </div>
-          <div class="col-4">
+          <div class="col-lg-4">
             <sideBarBlog />
           </div>
         </div>
@@ -213,6 +220,11 @@ const changePage = (pageNumber) => {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
+}
+.btn-product {
+  border: 1px solid #032b51;
+  color: var(--dark-blue);
+  transition: 0.4s;
 }
 .blog-item.first {
   grid-column: 1/4;

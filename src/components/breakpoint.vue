@@ -28,13 +28,26 @@ defineProps({
   display: inline-block;
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
-  width: 8px;
-  height: 8px;
+  min-width: 8px;
+  min-height: 8px;
+  max-width: 8px;
+  max-height: 8px;
 }
 .color-main {
   color: var(--dark-blue);
 }
 .breadcrumb > div:last-child {
   font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.breadcrumb {
+  white-space: nowrap;
+  flex-wrap: nowrap;
+}
+@media (max-width: 576px) {
+  .breadcrumb > div {
+    font-size: 12px !important;
+  }
 }
 </style>
