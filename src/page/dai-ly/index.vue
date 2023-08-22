@@ -144,7 +144,7 @@ const data = reactive([
     <section class="section-dai-ly-3">
       <div class="container">
         <div class="d-flex inner-section-3 justify-content-center">
-          <div class="box-section-3 text-center">
+          <div class="box-section-3 text-center z-3 position-relative">
             <h3 class="text-blue text-uppercase fw-semibold text-center">
               Liên hệ chúng tôi
             </h3>
@@ -165,12 +165,12 @@ const data = reactive([
               link="tel:19009207"
               class="btn-contact" />
           </div>
-          <div class="position-relative background-section-3">
+          <div class="position-relative z-1 background-section-3">
             <img
-              class="img-fluid"
+              class="img-fluid position-relative z-2"
               src="../../assets/image/section-3-dai-ly-bg.png"
               alt="đại lý" />
-            <div class="position-absolute section-3-gradient">
+            <div class="position-absolute z-0 section-3-gradient">
               <img
                 src="../../assets/image/gradient-section-3-dai-ly.png"
                 alt="gradient" />
