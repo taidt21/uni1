@@ -304,7 +304,7 @@ onMounted(() => {
       </div>
     </section>
     <!-- SECTION 6 -->
-    <section class="section-6">
+    <section class="section-6 pt-5">
       <div class="container">
         <titleH2 class="text-center mb-5">Sản phẩm mới</titleH2>
         <swiper
@@ -422,12 +422,15 @@ onMounted(() => {
           :pagination="{ clickable: true, dynamicBullets: true }"
           :space-between="16"
           :speed="800">
-          <swiper-slide v-for="(item, index) in dataPost.value" :key="index">
-            <div class="d-flex flex-column">
+          <swiper-slide
+            v-for="(item, index) in dataPost.value"
+            :key="index"
+            class="rounded-3">
+            <div class="d-flex flex-column pb-2">
               <a :href="item.url" class="image-post flex-grow-1">
                 <img class="img-fluid" :src="item.url" :alt="item.title" />
               </a>
-              <div class="d-flex gap-2 align-items-center mt-3">
+              <div class="d-flex gap-2 align-items-center mt-3 px-3">
                 <div class="date-icon-post d-flex">
                   <img
                     class="img-fluid"
@@ -436,7 +439,9 @@ onMounted(() => {
                 </div>
                 <div class="small date-post">21/01/2023</div>
               </div>
-              <h3 class="fw-medium name-post mt-1">{{ item.title }}</h3>
+              <h3 class="fw-medium name-post mt-2 px-3">
+                {{ item.title }}
+              </h3>
             </div>
           </swiper-slide>
         </Swiper>
@@ -703,6 +708,7 @@ onMounted(() => {
 .slide-product {
   padding-bottom: 165px;
 }
+
 .swiper-pagination {
   bottom: 85px !important;
 }
@@ -761,7 +767,9 @@ onMounted(() => {
 }
 /*SECTION 9*/
 .section-9 {
-  min-height: 100vh;
+  min-height: 50vh;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 .name-post {
@@ -772,7 +780,7 @@ onMounted(() => {
   color: var(--dark-blue);
 }
 .section-9 .swiper-pagination {
-  bottom: 0 !important;
+  bottom: -50px !important;
 }
 .name-post {
   display: -webkit-box;
@@ -800,6 +808,9 @@ onMounted(() => {
 .swiper-slide {
   cursor: -webkit-grab;
   cursor: grab;
+  -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
 }
 .name-review {
   font-size: 16px;

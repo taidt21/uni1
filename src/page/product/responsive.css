@@ -16,6 +16,7 @@
         font-weight: 400 !important;
         font-size: 14px !important;
 
+
     }
 
     .products-container {
@@ -43,6 +44,8 @@
     .pagination-item {
         font-size: 14px;
     }
+
+
 }
 
 @media(max-width:1200px) and (min-width:992px) {
@@ -50,4 +53,8 @@
 
         grid-template-columns: repeat(3, 1fr) !important;
     }
+}
+
+.btn-product {
+    white-space: nowrap;
 }

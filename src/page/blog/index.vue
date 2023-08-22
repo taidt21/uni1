@@ -15,14 +15,14 @@ const data = reactive([
     date: "23/06/2022",
     description: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500S. Lorem Ipsum has been the industry's standard dum`,
     image: image,
-    url: "chi-tiet-tin-tuc",
+    url: "/chi-tiet-tin-tuc",
   },
   {
     title: "4 bước làm bánh ngon đơn giản tại nhà bạn nên biết",
     date: "23/06/2022",
     description: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500S. Lorem Ipsum has been the industry's standard dum`,
     image: image,
-    url: "chi-tiet-tin-tuc",
+    url: "/chi-tiet-tin-tuc",
   },
   {
     title:
@@ -30,7 +30,7 @@ const data = reactive([
     date: "23/06/2022",
     description: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500S. Lorem Ipsum has been the industry's standard dum`,
     image: image,
-    url: "chi-tiet-tin-tuc",
+    url: "/chi-tiet-tin-tuc",
   },
   {
     title:
@@ -38,7 +38,7 @@ const data = reactive([
     date: "23/06/2022",
     description: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500S. Lorem Ipsum has been the industry's standard dum`,
     image: image,
-    url: "chi-tiet-tin-tuc",
+    url: "/chi-tiet-tin-tuc",
   },
   {
     title:
@@ -46,7 +46,7 @@ const data = reactive([
     date: "23/06/2022",
     description: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500S. Lorem Ipsum has been the industry's standard dum`,
     image: image,
-    url: "chi-tiet-tin-tuc",
+    url: "/chi-tiet-tin-tuc",
   },
   {
     title:
@@ -54,56 +54,56 @@ const data = reactive([
     date: "23/06/2022",
     description: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500S. Lorem Ipsum has been the industry's standard dum`,
     image: image,
-    url: "chi-tiet-tin-tuc",
+    url: "/chi-tiet-tin-tuc",
   },
   {
     title: "4 bước làm bánh ngon đơn giản tại nhà bạn nên biết",
     date: "23/06/2022",
     description: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500S. Lorem Ipsum has been the industry's standard dum`,
     image: image,
-    url: "chi-tiet-tin-tuc",
+    url: "/chi-tiet-tin-tuc",
   },
   {
     title: "4 bước làm bánh ngon đơn giản tại nhà bạn nên biết",
     date: "23/06/2022",
     description: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500S. Lorem Ipsum has been the industry's standard dum`,
     image: image,
-    url: "chi-tiet-tin-tuc",
+    url: "/chi-tiet-tin-tuc",
   },
   {
     title: "4 bước làm bánh ngon đơn giản tại nhà bạn nên biết",
     date: "23/06/2022",
     description: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500S. Lorem Ipsum has been the industry's standard dum`,
     image: image,
-    url: "chi-tiet-tin-tuc",
+    url: "/chi-tiet-tin-tuc",
   },
   {
     title: "4 bước làm bánh ngon đơn giản tại nhà bạn nên biết",
     date: "23/06/2022",
     description: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500S. Lorem Ipsum has been the industry's standard dum`,
     image: image,
-    url: "chi-tiet-tin-tuc",
+    url: "/chi-tiet-tin-tuc",
   },
   {
     title: "4 bước làm bánh ngon đơn giản tại nhà bạn nên biết",
     date: "23/06/2022",
     description: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500S. Lorem Ipsum has been the industry's standard dum`,
     image: image,
-    url: "chi-tiet-tin-tuc",
+    url: "/chi-tiet-tin-tuc",
   },
   {
     title: "4 bước làm bánh ngon đơn giản tại nhà bạn nên biết",
     date: "23/06/2022",
     description: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500S. Lorem Ipsum has been the industry's standard dum`,
     image: image,
-    url: "chi-tiet-tin-tuc",
+    url: "/chi-tiet-tin-tuc",
   },
   {
     title: "4 bước làm bánh ngon đơn giản tại nhà bạn nên biết",
     date: "23/06/2022",
     description: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500S. Lorem Ipsum has been the industry's standard dum`,
     image: image,
-    url: "chi-tiet-tin-tuc",
+    url: "/chi-tiet-tin-tuc",
   },
 ]);
 const dataPagination = ref(data);
