@@ -153,6 +153,13 @@
     }
 }
 
+/*SECTION 9*/
+@media(max-width:768px) {
+    .section-9 .swiper-pagination {
+        bottom: -35px !important;
+    }
+}
+
 /*SECTION 10*/
 .section-10 {
     padding-top: 72px;
@@ -169,5 +176,13 @@
         width: 20px;
         height: 20px;
         object-fit: contain;
+    }
+
+    .section-10 .swiper-pagination {
+        bottom: -35px !important;
+    }
+
+    .section-10 {
+        min-height: unset !important;
     }
 }

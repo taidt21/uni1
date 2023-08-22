@@ -821,7 +821,7 @@ onMounted(() => {
   font-size: 14px;
 }
 .section-10 .swiper-pagination {
-  bottom: 0 !important;
+  bottom: -50px !important;
 }
 .stars-review img {
   -webkit-filter: brightness(0) saturate(100%) invert(36%) sepia(1%)
